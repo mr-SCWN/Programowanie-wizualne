@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KaliadzichShumer.SneakersSh
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KaliadzichShumer.SneakersShop.INTERFACES", "KaliadzichShumer.SneakersShop.INTERFACES\KaliadzichShumer.SneakersShop.INTERFACES.csproj", "{1387E21E-0FA8-48CC-BD3E-CE151ED99410}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KaliadzichShumer.SneakersShop.DAO.Mock", "KaliadzichShumer.SneakersShop.DAO.Mock\KaliadzichShumer.SneakersShop.DAO.Mock.csproj", "{FE57F61C-0726-4865-91D3-7800C40F99FE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{1387E21E-0FA8-48CC-BD3E-CE151ED99410}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1387E21E-0FA8-48CC-BD3E-CE151ED99410}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1387E21E-0FA8-48CC-BD3E-CE151ED99410}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE57F61C-0726-4865-91D3-7800C40F99FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE57F61C-0726-4865-91D3-7800C40F99FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE57F61C-0726-4865-91D3-7800C40F99FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE57F61C-0726-4865-91D3-7800C40F99FE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
