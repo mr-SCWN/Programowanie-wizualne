@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KaliadzichShumer.SneakersSh
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KaliadzichShumer.SneakersShop.DAO.File", "KaliadzichShumer.SneakersShop.DAO.File\KaliadzichShumer.SneakersShop.DAO.File.csproj", "{FD19FE11-3D73-4841-8D57-B4AD9D5E6F4B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KaliadzichShumer.SneakersShop.DAO.SQL", "KaliadzichShumer.SneakersShop.DAO.SQL\KaliadzichShumer.SneakersShop.DAO.SQL.csproj", "{7221651D-E194-4BF5-93FC-A109770A1B9A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,5 +38,9 @@ Global
 		{FD19FE11-3D73-4841-8D57-B4AD9D5E6F4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FD19FE11-3D73-4841-8D57-B4AD9D5E6F4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FD19FE11-3D73-4841-8D57-B4AD9D5E6F4B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7221651D-E194-4BF5-93FC-A109770A1B9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7221651D-E194-4BF5-93FC-A109770A1B9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7221651D-E194-4BF5-93FC-A109770A1B9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7221651D-E194-4BF5-93FC-A109770A1B9A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
