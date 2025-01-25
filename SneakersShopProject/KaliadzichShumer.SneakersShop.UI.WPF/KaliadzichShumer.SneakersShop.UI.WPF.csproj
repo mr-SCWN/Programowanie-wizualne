@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\KaliadzichShumer.SneakersShop.BLC\KaliadzichShumer.SneakersShop.BLC.csproj" />
+    <ProjectReference Include="..\KaliadzichShumer.SneakersShop.INTERFACES\KaliadzichShumer.SneakersShop.INTERFACES.csproj" />
+    <ProjectReference Include="..\KaliadzichShumer.SneakersShop.CORE\KaliadzichShumer.SneakersShop.CORE.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net9.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+</Project>
