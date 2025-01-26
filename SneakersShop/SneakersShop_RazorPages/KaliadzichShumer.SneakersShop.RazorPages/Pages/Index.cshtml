@@ -1,0 +1,41 @@
+﻿@page
+@model KaliadzichShumer.SneakersShop.RazorPages.Pages.IndexModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h1>Products List</h1>
+
+<button id="addProductButton">Add Product</button>
+<button id="addProducerButton">Add Producer</button>
+
+<table>
+    <thead>
+        <tr>
+            <th>Producer</th>
+            <th>Product</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody id="productTableBody">
+        @foreach (var product in Model.Products)
+        {
+            <tr id="productRow-@product.Id">
+                <td>@product.ProducerName</td>
+                <td>@product.Name</td>
+                <td>
+                    <button class="edit-button" data-product-id="@product.Id">Edit</button>
+                    <button class="delete-button" data-product-id="@product.Id">Delete</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<!-- Include modals for adding and editing products and producers -->
+@await Html.PartialAsync("_ProductModals")
+@await Html.PartialAsync("_ProducerModals")
+
+@section Scripts {
+    <script src="~/js/site.js"></script>
+}

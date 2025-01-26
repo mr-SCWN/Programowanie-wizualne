@@ -19,6 +19,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SneakersShop_MAUI", "Sneake
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KaliadzichShumer.SneakersShop.MAUI", "SneakersShop_MAUI\KaliadzichShumer.SneakersShop.MAUI\KaliadzichShumer.SneakersShop.MAUI.csproj", "{C739520A-1F24-4E16-AD01-A32A13A99AFC}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SneakersShop_RazorPages", "SneakersShop_RazorPages", "{FD9C31AF-2CDD-4C7E-9F23-473451B783EB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KaliadzichShumer.SneakersShop.RazorPages", "SneakersShop_RazorPages\KaliadzichShumer.SneakersShop.RazorPages\KaliadzichShumer.SneakersShop.RazorPages.csproj", "{F517BA75-8703-4C78-BC72-8C0E558C6EA1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -52,6 +56,10 @@ Global
 		{C739520A-1F24-4E16-AD01-A32A13A99AFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C739520A-1F24-4E16-AD01-A32A13A99AFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C739520A-1F24-4E16-AD01-A32A13A99AFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F517BA75-8703-4C78-BC72-8C0E558C6EA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F517BA75-8703-4C78-BC72-8C0E558C6EA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F517BA75-8703-4C78-BC72-8C0E558C6EA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F517BA75-8703-4C78-BC72-8C0E558C6EA1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{8F415CC5-1B1C-40CB-A5F8-49EF29627BB3} = {84453EFE-6A8A-4C00-85FB-0162AAD98AA6}
@@ -60,5 +68,6 @@ Global
 		{E7C1CF30-C18E-4ED9-A789-480CDDEFF0B5} = {84453EFE-6A8A-4C00-85FB-0162AAD98AA6}
 		{37AE4BF3-C479-4060-BC46-DEF9AD190808} = {84453EFE-6A8A-4C00-85FB-0162AAD98AA6}
 		{C739520A-1F24-4E16-AD01-A32A13A99AFC} = {28C6505B-352F-4AA3-A8CB-3F3293124234}
+		{F517BA75-8703-4C78-BC72-8C0E558C6EA1} = {FD9C31AF-2CDD-4C7E-9F23-473451B783EB}
 	EndGlobalSection
 EndGlobal

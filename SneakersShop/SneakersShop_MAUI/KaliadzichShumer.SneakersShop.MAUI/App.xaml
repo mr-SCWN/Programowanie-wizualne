@@ -8,5 +8,4 @@
             <converters:InverseBoolConverter x:Key="InverseBoolConverter"/>
         </ResourceDictionary>
     </Application.Resources>
-    
 </Application>

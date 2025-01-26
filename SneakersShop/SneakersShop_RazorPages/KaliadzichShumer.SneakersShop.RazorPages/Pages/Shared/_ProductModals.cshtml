@@ -1,0 +1,34 @@
+<div id="addProductModal" class="modal">
+    <div class="modal-content">
+        <span class="close" id="closeAddProductModal">&times;</span>
+        <h2>Add Product </h2>
+        <label for="newProductName">Product Name:</label>
+        <input type="text" id="newProductName" />
+        <label for="producerSelect">Producer:</label>
+        <select id="producerSelect">
+            @foreach (var producer in Model.Producers)
+            {
+                <option value="@producer.Id">@producer.Name</option>
+            }
+        </select>
+        <button id="saveNewProductButton">Save</button>
+    </div>
+</div>
+
+<div id="editProductModal" class="modal">
+    <div class="modal-content">
+        <span class="close" id="closeEditProductModal">&times;</span>
+        <h2>Edit Product</h2>
+        <input type="hidden" id="editProductId" />
+        <label for="editProductName">Product Name:</label>
+        <input type="text" id="editProductName" />
+        <label for="editProductProducer">Producer:</label>
+        <select id="editProductProducer">
+            @foreach (var producer in Model.Producers)
+            {
+                <option value="@producer.Id">@producer.Name</option>
+            }
+        </select>
+        <button id="saveEditProductButton">Save</button>
+    </div>
+</div>

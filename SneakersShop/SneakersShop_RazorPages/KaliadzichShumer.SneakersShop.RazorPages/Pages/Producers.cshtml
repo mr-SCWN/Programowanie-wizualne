@@ -1,0 +1,37 @@
+@page
+@model KaliadzichShumer.SneakersShop.RazorPages.Pages.ProducersModel
+@{
+    ViewData["Title"] = "Producers Management";
+}
+
+<h1>Producers Management</h1>
+
+<button id="addProducerButton">Add Producer</button>
+
+<table>
+    <thead>
+        <tr>
+            <th>Producer Name</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody id="producerTableBody">
+        @foreach (var producer in Model.Producers)
+        {
+            <tr id="producerRow-@producer.Id">
+                <td>@producer.Name</td>
+                <td>
+                    <button class="edit-producer-button" data-producer-id="@producer.Id">Edit</button>
+                    <button class="delete-producer-button" data-producer-id="@producer.Id">Delete</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+@await Html.PartialAsync("_ProducerModals")
+
+@section Scripts {
+    <script src="~/js/site.js"></script>
+}

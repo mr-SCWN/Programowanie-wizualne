@@ -4,7 +4,7 @@ namespace KaliadzichShumer.SneakersShop.MAUI.Converters
 {
     public class InverseBoolConverter : IValueConverter
     {
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
             if (value is bool boolValue)
             {
@@ -13,7 +13,7 @@ namespace KaliadzichShumer.SneakersShop.MAUI.Converters
             return value;
         }
 
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        public object? ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
             if (value is bool boolValue)
             {
@@ -22,4 +22,4 @@ namespace KaliadzichShumer.SneakersShop.MAUI.Converters
             return value;
         }
     }
-} 
+}
