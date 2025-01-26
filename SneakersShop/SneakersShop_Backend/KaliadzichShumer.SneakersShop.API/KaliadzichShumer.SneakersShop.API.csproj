@@ -1,9 +1,24 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>net9.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>disable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
+    <UseAppHost>false</UseAppHost>
   </PropertyGroup>
 
-</Project>
+  <ItemGroup>
+    <ProjectReference Include="..\KaliadzichShumer.SneakersShop.INTERFACES\KaliadzichShumer.SneakersShop.INTERFACES.csproj" />
+    <ProjectReference Include="..\KaliadzichShumer.SneakersShop.BLC\KaliadzichShumer.SneakersShop.BLC.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.1" />
+  </ItemGroup>
+
+  <Target Name="CopyPlugins" AfterTargets="Build">
+    <Copy SourceFiles="..\KaliadzichShumer.SneakersShop.DAOEFCORE\bin\$(Configuration)\$(TargetFramework)\KaliadzichShumer.SneakersShop.DAOEFCORE.dll;..\KaliadzichShumer.SneakersShop.DAOMOCK\bin\$(Configuration)\$(TargetFramework)\KaliadzichShumer.SneakersShop.DAOMOCK.dll" DestinationFolder="$(OutDir)" />
+  </Target>
+
+</Project> 
