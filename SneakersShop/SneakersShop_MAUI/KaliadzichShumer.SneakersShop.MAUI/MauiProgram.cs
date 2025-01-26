@@ -7,8 +7,7 @@ using System.Net.Http.Headers;
 
 namespace KaliadzichShumer.SneakersShop.MAUI;
 
-public static class MauiProgram
-{
+public static class MauiProgram {
     private const string ApiBaseUrl = "http://localhost:5000";
 
     public static MauiApp CreateMauiApp()

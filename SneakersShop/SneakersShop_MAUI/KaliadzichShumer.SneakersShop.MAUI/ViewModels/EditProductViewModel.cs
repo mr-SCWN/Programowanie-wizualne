@@ -18,10 +18,8 @@ namespace KaliadzichShumer.SneakersShop.MAUI.ViewModels
         public Producer SelectedProducer
         {
             get => _selectedProducer;
-            set
-            {
-                if (_selectedProducer != value)
-                {
+            set {
+                if (_selectedProducer != value) {
                     _selectedProducer = value;
                     OnPropertyChanged();
                 }
@@ -33,8 +31,7 @@ namespace KaliadzichShumer.SneakersShop.MAUI.ViewModels
             ProducerService producerService,
             INavigationService navigationService,
             IDialogService dialogService,
-            int? productId = null) : base(navigationService)
-        {
+            int? productId = null) : base(navigationService) {
             _productsViewModel = productsViewModel;
             _producerService = producerService;
             _dialogService = dialogService;
@@ -42,26 +39,22 @@ namespace KaliadzichShumer.SneakersShop.MAUI.ViewModels
             _productId = productId;
         }
 
-        public async Task LoadData()
-        {
+        public async Task LoadData() {
             if (IsBusy) return;
 
-            try
-            {
+            try  {
                 IsBusy = true;
 
                 var producers = await _producerService.GetProducersAsync();
                 await MainThread.InvokeOnMainThreadAsync(() =>
                 {
                     Producers.Clear();
-                    foreach (var producer in producers)
-                    {
+                    foreach (var producer in producers)  {
                         Producers.Add(producer);
                     }
                 });
 
-                if (_productId.HasValue)
-                {
+                if (_productId.HasValue) {
                     var product = _productsViewModel.Products.FirstOrDefault(p => p.Id == _productId.Value);
                     if (product != null)
                     {
@@ -69,46 +62,37 @@ namespace KaliadzichShumer.SneakersShop.MAUI.ViewModels
                         SelectedProducer = Producers.FirstOrDefault(p => p.Id == product.ProducerId);
                     }
                 }
-            }
-            finally
-            {
+            } finally {
                 IsBusy = false;
             }
         }
 
-        protected override async Task OnSave()
-        {
+        protected override async Task OnSave() {
             if (IsBusy) return;
 
-            try
-            {
+            try {
                 IsBusy = true;
 
-                if (string.IsNullOrEmpty(Name))
-                {
+                if (string.IsNullOrEmpty(Name)) {
                     await _dialogService.DisplayAlert("Error", "Please enter product name", "OK");
                     return;
                 }
 
-                if (SelectedProducer == null)
-                {
+                if (SelectedProducer == null) {
                     await _dialogService.DisplayAlert("Error", "Please select a producer", "OK");
                     return;
                 }
 
-                if (_productId.HasValue)
-                    await _productsViewModel.UpdateProduct(_productId.Value, Name, SelectedProducer.Id);
-                else
-                    await _productsViewModel.AddProduct(Name, SelectedProducer.Id);
+                if (_productId.HasValue){
+                        await _productsViewModel.UpdateProduct(_productId.Value, Name, SelectedProducer.Id);
+                } else {await _productsViewModel.AddProduct(Name, SelectedProducer.Id);
+                }
 
                 await _navigationService.PopModalAsync();
             }
-            catch (Exception ex)
-            {
+            catch (Exception ex)  {
                 await _dialogService.DisplayAlert("Error", "Failed to save product. Please try again.", "OK");
-            }
-            finally
-            {
+            }  finally {
                 IsBusy = false;
             }
         }

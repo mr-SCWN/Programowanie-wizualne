@@ -9,8 +9,7 @@ using System.Windows.Input;
 
 namespace KaliadzichShumer.SneakersShop.MAUI.ViewModels
 {
-    public class ProducersViewModel : BindableObject
-    {
+    public class ProducersViewModel : BindableObject {
         private readonly ProducerService _producerService;
         private readonly INavigationService _navigationService;
         private readonly IDialogService _dialogService;
@@ -22,13 +21,11 @@ namespace KaliadzichShumer.SneakersShop.MAUI.ViewModels
         public ICommand DeleteProducerCommand { get; }
 
         private bool _isBusy;
-        public bool IsBusy
-        {
+        public bool IsBusy {
             get => _isBusy;
             set
             {
-                if (_isBusy != value)
-                {
+                if (_isBusy != value) {
                     _isBusy = value;
                     OnPropertyChanged();
                 }
@@ -51,41 +48,34 @@ namespace KaliadzichShumer.SneakersShop.MAUI.ViewModels
             DeleteProducerCommand = new Command<int>(async (id) => await OnDeleteProducer(id));
         }
 
-        private async Task OnAddProducer()
-        {
+        private async Task OnAddProducer(){
             var viewModel = _editViewModelFactory(this, _navigationService, _dialogService, null);
             await _navigationService.PushModalAsync(new EditProducerPage(viewModel));
         }
 
-        private async Task OnEditProducer(int id)
-        {
+        private async Task OnEditProducer(int id){
             var viewModel = _editViewModelFactory(this, _navigationService, _dialogService, id);
             await _navigationService.PushModalAsync(new EditProducerPage(viewModel));
         }
 
-        private async Task OnDeleteProducer(int id)
-        {
-            try
-            {
+        private async Task OnDeleteProducer(int id) {
+            try {
                 bool confirm = await _dialogService.DisplayConfirmation("Confirm", "Delete this producer?");
-                if (confirm)
-                {
+                if (confirm) {
                     await DeleteProducer(id);
                 }
-            }
-            catch (Exception ex)
-            {
+            }  catch (Exception ex)  {
                 Debug.WriteLine($"Exception in OnDeleteProducer: {ex}");
                 await _dialogService.DisplayAlert("Error", "Failed to delete producer. Please try again.");
             }
         }
 
-        public async Task LoadData()
-        {
-            if (IsBusy) return;
+        public async Task LoadData() {
+            if (IsBusy) {
+                return;
+            }
 
-            try
-            {
+            try  {
                 IsBusy = true;
                 var producers = await _producerService.GetProducersAsync();
                 
@@ -99,23 +89,20 @@ namespace KaliadzichShumer.SneakersShop.MAUI.ViewModels
                     OnPropertyChanged(nameof(Producers));
                 });
             }
-            catch (Exception ex)
-            {
+            catch (Exception ex){
                 Debug.WriteLine($"Error in LoadData: {ex}");
                 await _dialogService.DisplayAlert("Error", "Failed to load producers. Please try again.");
-            }
-            finally
-            {
+            }  finally{
                 IsBusy = false;
             }
         }
 
-        public async Task<bool> AddProducer(string name)
-        {
-            if (IsBusy) return false;
+        public async Task<bool> AddProducer(string name)  {
+            if (IsBusy) {
+                return false;
+            }
 
-            try
-            {
+            try {
                 IsBusy = true;
                 var producer = new Models.Producer { Name = name };
                 await _dialogService.DisplayAlert("Debug", $"Attempting to add producer: {name}");
@@ -138,15 +125,12 @@ namespace KaliadzichShumer.SneakersShop.MAUI.ViewModels
                     "Error", 
                     $"An error occurred while adding the producer.\nError details:\n{ex.Message}\n\nInner error:\n{ex.InnerException?.Message ?? "None"}");
                 return false;
-            }
-            finally
-            {
+            } finally {
                 IsBusy = false;
             }
         }
 
-        public async Task<bool> UpdateProducer(int id, string name)
-        {
+        public async Task<bool> UpdateProducer(int id, string name) {
             if (IsBusy) return false;
 
             try
@@ -156,8 +140,7 @@ namespace KaliadzichShumer.SneakersShop.MAUI.ViewModels
                 if (producer != null)
                 {
                     producer.Name = name;
-                    if (await _producerService.UpdateProducerAsync(producer))
-                    {
+                    if (await _producerService.UpdateProducerAsync(producer))  {
                         await LoadData();
                         return true;
                     }
@@ -168,23 +151,20 @@ namespace KaliadzichShumer.SneakersShop.MAUI.ViewModels
                     }
                 }
                 return false;
-            }
-            catch (Exception ex)
-            {
+            } catch (Exception ex)  {
                 Debug.WriteLine($"Error in UpdateProducer: {ex}");
                 await _dialogService.DisplayAlert("Error", "An error occurred while updating the producer.");
                 return false;
-            }
-            finally
-            {
+            } finally {
                 IsBusy = false;
             }
         }
 
         public async Task<bool> DeleteProducer(int id)
         {
-            if (IsBusy) return false;
-
+            if (IsBusy){
+                return false;
+            } 
             try
             {
                 IsBusy = true;
@@ -192,22 +172,17 @@ namespace KaliadzichShumer.SneakersShop.MAUI.ViewModels
                 
                 await LoadData();
                 
-                if (!success)
-                {
+                if (!success) {
                     await _dialogService.DisplayAlert("Error", "Failed to delete producer. Please try again.");
                 }
                 
                 return success;
-            }
-            catch (Exception ex)
-            {
+            } catch (Exception ex)  {
                 Debug.WriteLine($"Error in DeleteProducer: {ex}");
                 await _dialogService.DisplayAlert("Error", "An error occurred while deleting the producer.");
                 await LoadData();
                 return false;
-            }
-            finally
-            {
+            } finally  {
                 IsBusy = false;
             }
         }

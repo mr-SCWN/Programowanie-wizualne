@@ -1,9 +1,7 @@
 using KaliadzichShumer.SneakersShop.INTERFACES.Models;
 
-namespace KaliadzichShumer.SneakersShop.INTERFACES.Services
-{
-    public interface ISneakersShopService
-    {
+namespace KaliadzichShumer.SneakersShop.INTERFACES.Services {
+    public interface ISneakersShopService {
         IEnumerable<IProducer> GetAllProducers();
         IProducer GetProducerById(int id);
         IProducer CreateProducer(IProducer producer);

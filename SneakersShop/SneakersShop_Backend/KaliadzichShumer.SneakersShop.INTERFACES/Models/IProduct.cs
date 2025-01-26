@@ -1,7 +1,5 @@
-namespace KaliadzichShumer.SneakersShop.INTERFACES.Models
-{
-    public interface IProduct
-    {
+namespace KaliadzichShumer.SneakersShop.INTERFACES.Models {
+    public interface IProduct {
         int Id { get; set; }
         string Name { get; set; }
         int ProducerId { get; set; }

@@ -1,20 +1,15 @@
 using KaliadzichShumer.SneakersShop.INTERFACES.Models;
 
-namespace KaliadzichShumer.SneakersShop.API.Models
-{
-    public static class Mapping
-    {
-        public static ProducerDto ToDto(this IProducer producer)
-        {
-            return new ProducerDto
-            {
+namespace KaliadzichShumer.SneakersShop.API.Models {
+    public static class Mapping  {
+        public static ProducerDto ToDto(this IProducer producer) {
+            return new ProducerDto {
                 Id = producer.Id,
                 Name = producer.Name
             };
         }
 
-        public static IProducer ToModel(this ProducerDto dto)
-        {
+        public static IProducer ToModel(this ProducerDto dto) {
             return new ProducerModel
             {
                 Id = dto.Id,
@@ -22,8 +17,7 @@ namespace KaliadzichShumer.SneakersShop.API.Models
             };
         }
 
-        public static ProductDto ToDto(this IProduct product)
-        {
+        public static ProductDto ToDto(this IProduct product) {
             return new ProductDto
             {
                 Id = product.Id,
@@ -33,27 +27,25 @@ namespace KaliadzichShumer.SneakersShop.API.Models
             };
         }
 
-        public static IProduct ToModel(this ProductDto dto)
+        public static IProduct ToModel(this ProductDto dto) 
         {
-            return new ProductModel
-            {
+            return new ProductModel {
                 Id = dto.Id,
                 Name = dto.Name,
                 ProducerId = dto.ProducerId,
-                ProducerName = dto.ProducerName
+                ProducerName  = dto.ProducerName
+
             };
         }
     }
 
-    internal class ProducerModel : IProducer
-    {
-        public int Id { get; set; }
+    internal class ProducerModel : IProducer{
+        public int Id {get;set;}
         public string Name { get; set; }
         public ICollection<IProduct> Products { get; set; } = new List<IProduct>();
     }
 
-    internal class ProductModel : IProduct
-    {
+    internal class ProductModel : IProduct{
         public int Id { get; set; }
         public string Name { get; set; }
         public int ProducerId { get; set; }

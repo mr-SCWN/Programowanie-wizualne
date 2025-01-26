@@ -1,9 +1,7 @@
 using KaliadzichShumer.SneakersShop.INTERFACES.Models;
 
-namespace KaliadzichShumer.SneakersShop.INTERFACES
-{
-    public interface IDAO
-    {
+namespace KaliadzichShumer.SneakersShop.INTERFACES {
+    public interface IDAO {
         IEnumerable<IProducer> GetAllProducers();
         IProducer GetProducerById(int id);
         IProducer CreateProducer(IProducer producer);

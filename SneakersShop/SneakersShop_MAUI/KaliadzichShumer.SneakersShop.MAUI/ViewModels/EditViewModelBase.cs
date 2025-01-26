@@ -1,8 +1,7 @@
 using System.Windows.Input;
 using KaliadzichShumer.SneakersShop.MAUI.Services;
 
-namespace KaliadzichShumer.SneakersShop.MAUI.ViewModels
-{
+namespace KaliadzichShumer.SneakersShop.MAUI.ViewModels{
     public abstract class EditViewModelBase : BindableObject
     {
         private readonly INavigationService _navigationService;
@@ -21,13 +20,11 @@ namespace KaliadzichShumer.SneakersShop.MAUI.ViewModels
         }
 
         private string _name;
-        public string Name
-        {
+        public string Name {
             get => _name;
             set
             {
-                if (_name != value)
-                {
+                if (_name != value){
                     _name = value;
                     OnPropertyChanged();
                 }
@@ -37,8 +34,7 @@ namespace KaliadzichShumer.SneakersShop.MAUI.ViewModels
         public ICommand SaveCommand { get; }
         public ICommand CancelCommand { get; }
 
-        protected EditViewModelBase(INavigationService navigationService)
-        {
+        protected EditViewModelBase(INavigationService navigationService){
             _navigationService = navigationService;
             SaveCommand = new Command(async () => await OnSave(), () => !IsBusy);
             CancelCommand = new Command(async () => await OnCancel());
@@ -46,9 +42,6 @@ namespace KaliadzichShumer.SneakersShop.MAUI.ViewModels
 
         protected abstract Task OnSave();
 
-        protected virtual async Task OnCancel()
-        {
-            await _navigationService.PopModalAsync();
-        }
+        protected virtual async Task OnCancel() {   await _navigationService.PopModalAsync();   }
     }
 } 

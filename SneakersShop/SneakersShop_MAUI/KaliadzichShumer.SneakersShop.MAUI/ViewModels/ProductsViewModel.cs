@@ -10,8 +10,7 @@ using System.Windows.Input;
 
 namespace KaliadzichShumer.SneakersShop.MAUI.ViewModels
 {
-    public class ProductsViewModel : BindableObject
-    {
+    public class ProductsViewModel : BindableObject {
         private readonly ProductService _productService;
         private readonly ProducerService _producerService;
         private readonly INavigationService _navigationService;
@@ -24,8 +23,7 @@ namespace KaliadzichShumer.SneakersShop.MAUI.ViewModels
         public ICommand DeleteProductCommand { get; }
 
         private bool _isBusy;
-        public bool IsBusy
-        {
+        public bool IsBusy {
             get => _isBusy;
             set
             {
@@ -55,25 +53,20 @@ namespace KaliadzichShumer.SneakersShop.MAUI.ViewModels
             DeleteProductCommand = new Command<int>(async (id) => await OnDeleteProduct(id));
         }
 
-        private async Task OnAddProduct()
-        {
+        private async Task OnAddProduct(){
             var viewModel = _editViewModelFactory(this, _producerService, _navigationService, _dialogService, null);
             await _navigationService.PushModalAsync(new EditProductPage(viewModel));
         }
 
-        private async Task OnEditProduct(int id)
-        {
+        private async Task OnEditProduct(int id) {
             var viewModel = _editViewModelFactory(this, _producerService, _navigationService, _dialogService, id);
             await _navigationService.PushModalAsync(new EditProductPage(viewModel));
         }
 
-        private async Task OnDeleteProduct(int id)
-        {
-            try
-            {
+        private async Task OnDeleteProduct(int id)  {
+            try  {
                 bool confirm = await _dialogService.DisplayConfirmation("Confirm", "Delete this product?");
-                if (confirm)
-                {
+                if (confirm){
                     await DeleteProduct(id);
                 }
             }
@@ -86,10 +79,9 @@ namespace KaliadzichShumer.SneakersShop.MAUI.ViewModels
 
         public async Task LoadData()
         {
-            if (IsBusy) return;
+            if (IsBusy){return;}
 
-            try
-            {
+            try  {
                 IsBusy = true;
                 var products = await _productService.GetProductsAsync();
                 
@@ -107,9 +99,7 @@ namespace KaliadzichShumer.SneakersShop.MAUI.ViewModels
             {
                 Debug.WriteLine($"Error in LoadData: {ex}");
                 await _dialogService.DisplayAlert("Error", "Failed to load products. Please try again.");
-            }
-            finally
-            {
+            } finally {
                 IsBusy = false;
             }
         }
@@ -130,28 +120,23 @@ namespace KaliadzichShumer.SneakersShop.MAUI.ViewModels
                 {
                     await _dialogService.DisplayAlert("Error", "Failed to add product. Please try again.");
                 }
-            }
-            catch (Exception ex)
-            {
+            } catch (Exception ex){
                 Debug.WriteLine($"Error in AddProduct: {ex}");
                 await _dialogService.DisplayAlert("Error", "An error occurred while adding the product.");
-            }
-            finally
-            {
+            } finally {
                 IsBusy = false;
             }
         }
 
         public async Task UpdateProduct(int id, string name, int producerId)
         {
-            if (IsBusy) return;
+            if (IsBusy) {
+                return;}
 
-            try
-            {
+            try  {
                 IsBusy = true;
                 var product = Products.FirstOrDefault(x => x.Id == id);
-                if (product != null)
-                {
+                if (product != null)  {
                     product.Name = name;
                     product.ProducerId = producerId;
                     if (await _productService.UpdateProductAsync(product))
@@ -190,15 +175,11 @@ namespace KaliadzichShumer.SneakersShop.MAUI.ViewModels
                 {
                     await _dialogService.DisplayAlert("Error", "Failed to delete product. Please try again.");
                 }
-            }
-            catch (Exception ex)
-            {
+            }  catch (Exception ex) {
                 Debug.WriteLine($"Error in DeleteProduct: {ex}");
                 await _dialogService.DisplayAlert("Error", "An error occurred while deleting the product.");
                 await LoadData();
-            }
-            finally
-            {
+            }  finally {
                 IsBusy = false;
             }
         }

@@ -1,10 +1,8 @@
 using KaliadzichShumer.SneakersShop.MAUI.Models;
 using KaliadzichShumer.SneakersShop.MAUI.Services;
 
-namespace KaliadzichShumer.SneakersShop.MAUI.ViewModels
-{
-    public class EditProducerViewModel : EditViewModelBase
-    {
+namespace KaliadzichShumer.SneakersShop.MAUI.ViewModels{
+    public class EditProducerViewModel : EditViewModelBase {
         private readonly ProducersViewModel _producersViewModel;
         private readonly IDialogService _dialogService;
         private readonly INavigationService _navigationService;
@@ -21,8 +19,7 @@ namespace KaliadzichShumer.SneakersShop.MAUI.ViewModels
             _navigationService = navigationService;
             _producerId = producerId;
 
-            if (producerId.HasValue)
-            {
+            if (producerId.HasValue) {
                 var producer = _producersViewModel.Producers.FirstOrDefault(p => p.Id == producerId.Value);
                 if (producer != null)
                 {
@@ -31,37 +28,31 @@ namespace KaliadzichShumer.SneakersShop.MAUI.ViewModels
             }
         }
 
-        protected override async Task OnSave()
-        {
+        protected override async Task OnSave() {
             if (IsBusy) return;
 
-            try
-            {
+            try {
                 IsBusy = true;
 
-                if (string.IsNullOrEmpty(Name))
-                {
+                if (string.IsNullOrEmpty(Name)) {
                     await _dialogService.DisplayAlert("Error", "Please enter producer name", "OK");
                     return;
                 }
 
                 bool success;
-                if (_producerId.HasValue)
+                if (_producerId.HasValue){
                     success = await _producersViewModel.UpdateProducer(_producerId.Value, Name);
-                else
-                    success = await _producersViewModel.AddProducer(Name);
+                }  else {
+                        success = await _producersViewModel.AddProducer(Name);
+                }
+                   
 
-                if (success)
-                {
+                if (success) {
                     await _navigationService.PopModalAsync();
                 }
-            }
-            catch (Exception ex)
-            {
+            }  catch (Exception ex) {
                 await _dialogService.DisplayAlert("Error", "Failed to save producer. Please try again.", "OK");
-            }
-            finally
-            {
+            } finally  {
                 IsBusy = false;
             }
         }
