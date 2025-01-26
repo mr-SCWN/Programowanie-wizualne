@@ -3,6 +3,22 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SneakersShop_Backend", "SneakersShop_Backend", "{84453EFE-6A8A-4C00-85FB-0162AAD98AA6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KaliadzichShumer.SneakersShop.INTERFACES", "SneakersShop_Backend\KaliadzichShumer.SneakersShop.INTERFACES\KaliadzichShumer.SneakersShop.INTERFACES.csproj", "{8F415CC5-1B1C-40CB-A5F8-49EF29627BB3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KaliadzichShumer.SneakersShop.BLC", "SneakersShop_Backend\KaliadzichShumer.SneakersShop.BLC\KaliadzichShumer.SneakersShop.BLC.csproj", "{F4ECEDAC-F8F0-4D64-94E7-7E84D67C82AF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KaliadzichShumer.SneakersShop.DAOMOCK", "SneakersShop_Backend\KaliadzichShumer.SneakersShop.DAOMOCK\KaliadzichShumer.SneakersShop.DAOMOCK.csproj", "{735C12B7-1289-4775-87AC-F56FB435DFC0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KaliadzichShumer.SneakersShop.DAOEFCORE", "SneakersShop_Backend\KaliadzichShumer.SneakersShop.DAOEFCORE\KaliadzichShumer.SneakersShop.DAOEFCORE.csproj", "{E7C1CF30-C18E-4ED9-A789-480CDDEFF0B5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KaliadzichShumer.SneakersShop.API", "SneakersShop_Backend\KaliadzichShumer.SneakersShop.API\KaliadzichShumer.SneakersShop.API.csproj", "{37AE4BF3-C479-4060-BC46-DEF9AD190808}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SneakersShop_MAUI", "SneakersShop_MAUI", "{28C6505B-352F-4AA3-A8CB-3F3293124234}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KaliadzichShumer.SneakersShop.MAUI", "SneakersShop_MAUI\KaliadzichShumer.SneakersShop.MAUI\KaliadzichShumer.SneakersShop.MAUI.csproj", "{C739520A-1F24-4E16-AD01-A32A13A99AFC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -10,5 +26,39 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8F415CC5-1B1C-40CB-A5F8-49EF29627BB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F415CC5-1B1C-40CB-A5F8-49EF29627BB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F415CC5-1B1C-40CB-A5F8-49EF29627BB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F415CC5-1B1C-40CB-A5F8-49EF29627BB3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4ECEDAC-F8F0-4D64-94E7-7E84D67C82AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4ECEDAC-F8F0-4D64-94E7-7E84D67C82AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4ECEDAC-F8F0-4D64-94E7-7E84D67C82AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4ECEDAC-F8F0-4D64-94E7-7E84D67C82AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{735C12B7-1289-4775-87AC-F56FB435DFC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{735C12B7-1289-4775-87AC-F56FB435DFC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{735C12B7-1289-4775-87AC-F56FB435DFC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{735C12B7-1289-4775-87AC-F56FB435DFC0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7C1CF30-C18E-4ED9-A789-480CDDEFF0B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7C1CF30-C18E-4ED9-A789-480CDDEFF0B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7C1CF30-C18E-4ED9-A789-480CDDEFF0B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7C1CF30-C18E-4ED9-A789-480CDDEFF0B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37AE4BF3-C479-4060-BC46-DEF9AD190808}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37AE4BF3-C479-4060-BC46-DEF9AD190808}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37AE4BF3-C479-4060-BC46-DEF9AD190808}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37AE4BF3-C479-4060-BC46-DEF9AD190808}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C739520A-1F24-4E16-AD01-A32A13A99AFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C739520A-1F24-4E16-AD01-A32A13A99AFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C739520A-1F24-4E16-AD01-A32A13A99AFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C739520A-1F24-4E16-AD01-A32A13A99AFC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8F415CC5-1B1C-40CB-A5F8-49EF29627BB3} = {84453EFE-6A8A-4C00-85FB-0162AAD98AA6}
+		{F4ECEDAC-F8F0-4D64-94E7-7E84D67C82AF} = {84453EFE-6A8A-4C00-85FB-0162AAD98AA6}
+		{735C12B7-1289-4775-87AC-F56FB435DFC0} = {84453EFE-6A8A-4C00-85FB-0162AAD98AA6}
+		{E7C1CF30-C18E-4ED9-A789-480CDDEFF0B5} = {84453EFE-6A8A-4C00-85FB-0162AAD98AA6}
+		{37AE4BF3-C479-4060-BC46-DEF9AD190808} = {84453EFE-6A8A-4C00-85FB-0162AAD98AA6}
+		{C739520A-1F24-4E16-AD01-A32A13A99AFC} = {28C6505B-352F-4AA3-A8CB-3F3293124234}
 	EndGlobalSection
 EndGlobal

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:models="clr-namespace:KaliadzichShumer.SneakersShop.MAUI.Models"
+    xmlns:vm="clr-namespace:KaliadzichShumer.SneakersShop.MAUI.ViewModels"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="KaliadzichShumer.SneakersShop.MAUI.Views.ProductsPage"
+    x:DataType="vm:ProductsViewModel">
+
+    <VerticalStackLayout Padding="10">
+        <Button Text="Add Product"
+                Command="{Binding AddProductCommand}"/>
+        <CollectionView ItemsSource="{Binding Products}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:Product">
+                    <HorizontalStackLayout Spacing="10">
+                        <Label Text="{Binding ProducerName}"
+                                WidthRequest="100"/>
+                        <Label Text="{Binding Name}"
+                                WidthRequest="100"/>
+                        <Button Text="Edit"
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type vm:ProductsViewModel}}, Path=EditProductCommand}"
+                                CommandParameter="{Binding Id}"/>
+                        <Button Text="Delete"
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type vm:ProductsViewModel}}, Path=DeleteProductCommand}"
+                                CommandParameter="{Binding Id}"
+                                TextColor="Red"/>
+                    </HorizontalStackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentPage>

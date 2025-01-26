@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewmodels="clr-namespace:KaliadzichShumer.SneakersShop.MAUI.ViewModels"
+    x:Class="KaliadzichShumer.SneakersShop.MAUI.Views.EditProducerPage"
+    x:DataType="viewmodels:EditProducerViewModel">
+
+    <VerticalStackLayout Padding="20" Spacing="10">
+        <Label Text="Edit/Add Producer" FontSize="24"/>
+        <Label Text="Name:"/>
+        <Entry Text="{Binding Name}" Placeholder="Enter producer name"/>
+        <HorizontalStackLayout Spacing="10">
+            <Button Text="Save" Command="{Binding SaveCommand}" IsEnabled="{Binding IsBusy, Converter={StaticResource InverseBoolConverter}}"/>
+            <Button Text="Cancel" Command="{Binding CancelCommand}"/>
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>
