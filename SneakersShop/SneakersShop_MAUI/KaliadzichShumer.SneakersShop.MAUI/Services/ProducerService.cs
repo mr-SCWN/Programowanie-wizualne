@@ -25,7 +25,9 @@ namespace KaliadzichShumer.SneakersShop.MAUI.Services
                 var logMessage = $"{DateTime.Now:yyyy-MM-dd HH:mm:ss} - {message}{Environment.NewLine}";
                 File.AppendAllText(_logPath, logMessage);
             }
-            catch {}
+            catch {
+                
+            }
         }
 
         public async Task<IEnumerable<Producer>> GetProducersAsync()
