@@ -1,42 +1,75 @@
-﻿/* Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
-for details on configuring this project to bundle and minify static web assets. */
+﻿body {
+  background-color: #3c3c3c;
+  color: #cccccc;
+}
 
 a.navbar-brand {
   white-space: normal;
   text-align: center;
   word-break: break-all;
+  color: #cccccc;
 }
 
 a {
-  color: #0077cc;
+  color: #1e90ff;
 }
 
+.top-buttons {
+  display: flex;
+  justify-content: center; /* Центрирование кнопок по горизонтали */
+  position: fixed; /* Фиксированное положение внизу */
+  bottom: 20px; /* Расстояние от нижнего края */
+  left: 0;
+  right: 0;
+  margin: auto;
+  z-index: 1000; /* Поверх других элементов */
+}
+
+.top-buttons button {
+  margin: 10px; /* Отступы между кнопками */
+  padding: 10px 20px; /* Внутренние отступы для размера кнопки */
+  font-size: 1rem;
+  background-color: #007bff;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.top-buttons button:hover {
+  background-color: #0056b3; /* Изменение цвета при наведении */
+}
+
+
 .btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+  color: #ffffff;
+  background-color: #007bff;
+  border-color: #0056b3;
 }
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+  color: #ffffff;
+  background-color: #007bff;
+  border-color: #0056b3;
 }
 
 .border-top {
-  border-top: 1px solid #e5e5e5;
+  border-top: 1px solid #555;
 }
 .border-bottom {
-  border-bottom: 1px solid #e5e5e5;
+  border-bottom: 1px solid #555;
 }
 
 .box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .5);
 }
 
 button.accept-policy {
   font-size: 1rem;
   line-height: inherit;
+  color: #ffffff;
+  background-color: #007bff;
+  border-color: #0056b3;
 }
 
 .footer {
@@ -45,4 +78,66 @@ button.accept-policy {
   width: 100%;
   white-space: nowrap;
   line-height: 60px;
+  color: #cccccc;
+  background-color: #3c3c3c;
+}
+
+h1 {
+  text-align: center;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.buttons-container button {
+  margin: 5px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #1ee310;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.buttons-container button:hover {
+  background-color: #c60837;
+}
+
+.large-buttons-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.large-buttons-container .btn-primary {
+  display: inline-block;
+  margin: 5px;
+  padding: 10px 20px;
+  font-size: 1rem;
+}
+
+.add-buttons-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.add-buttons-container button {
+  margin: 5px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #007bff;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.add-buttons-container button:hover {
+  background-color: #0056b3;
 }
