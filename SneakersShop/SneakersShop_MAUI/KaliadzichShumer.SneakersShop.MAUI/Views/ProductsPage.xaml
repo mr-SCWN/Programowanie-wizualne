@@ -1,33 +1,89 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <ContentPage
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:models="clr-namespace:KaliadzichShumer.SneakersShop.MAUI.Models"
     xmlns:vm="clr-namespace:KaliadzichShumer.SneakersShop.MAUI.ViewModels"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="KaliadzichShumer.SneakersShop.MAUI.Views.ProductsPage"
-    x:DataType="vm:ProductsViewModel">
+    x:DataType="vm:ProductsViewModel"
+    BackgroundColor="#2E2E2E"> <!-- Тёмно‐серый фон -->
 
-    <VerticalStackLayout Padding="10">
+    <!-- Ресурсы страницы: стили для текста и кнопок -->
+    <ContentPage.Resources>
+        <Style TargetType="Label">
+            <!-- Белый цвет текста; выравниваем по центру -->
+            <Setter Property="TextColor" Value="White"/>
+            <Setter Property="HorizontalTextAlignment" Value="Center"/>
+        </Style>
+
+        <Style TargetType="Button">
+            <!-- Белый текст кнопок -->
+            <Setter Property="TextColor" Value="White"/>
+            <!-- Прозрачный фон кнопок, если нужно -->
+            <Setter Property="BackgroundColor" Value="Transparent"/>
+        </Style>
+    </ContentPage.Resources>
+
+    <VerticalStackLayout Padding="10" Spacing="20">
+
+        <!-- Заголовок страницы по центру -->
+        <Label Text="Products"
+               FontSize="24"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"/>
+
+        <!-- Кнопка "Add Product" тоже по центру -->
         <Button Text="Add Product"
-                Command="{Binding AddProductCommand}"/>
-        <CollectionView ItemsSource="{Binding Products}">
+                Command="{Binding AddProductCommand}"
+                HorizontalOptions="Center"/>
+
+        <!-- Список продуктов -->
+        <CollectionView ItemsSource="{Binding Products}"
+                       Margin="0,20,0,0">
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="models:Product">
-                    <HorizontalStackLayout Spacing="10">
-                        <Label Text="{Binding ProducerName}"
-                                WidthRequest="100"/>
-                        <Label Text="{Binding Name}"
-                                WidthRequest="100"/>
-                        <Button Text="Edit"
-                                Command="{Binding Source={RelativeSource AncestorType={x:Type vm:ProductsViewModel}}, Path=EditProductCommand}"
-                                CommandParameter="{Binding Id}"/>
-                        <Button Text="Delete"
-                                Command="{Binding Source={RelativeSource AncestorType={x:Type vm:ProductsViewModel}}, Path=DeleteProductCommand}"
-                                CommandParameter="{Binding Id}"
-                                TextColor="Red"/>
-                    </HorizontalStackLayout>
+                    
+                    <!-- 
+                         Используем Border (MAUI .NET 7+)
+                         Stroke="Black" – чёрная рамка,
+                         StrokeThickness="1" – толщина рамки
+                    -->
+                    <Border Stroke="Black" StrokeThickness="1" Margin="2">
+                        <Grid ColumnDefinitions="Auto,Auto,Auto,Auto"
+                              Padding="10">
+
+                            <!-- Название производителя -->
+                            <Label Grid.Column="0"
+                                   Text="{Binding ProducerName}"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center"/>
+                            
+                            <!-- Название продукта -->
+                            <Label Grid.Column="1"
+                                   Text="{Binding Name}"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center"
+                                   Margin="20,0,20,0"/>
+
+                            <!-- Кнопка Edit -->
+                            <Button Grid.Column="2"
+                                    Text="Edit"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type vm:ProductsViewModel}}, Path=EditProductCommand}"
+                                    CommandParameter="{Binding Id}"
+                                    HorizontalOptions="Center"/>
+
+                            <!-- Кнопка Delete -->
+                            <Button Grid.Column="3"
+                                    Text="Delete"
+                                    TextColor="Red"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type vm:ProductsViewModel}}, Path=DeleteProductCommand}"
+                                    CommandParameter="{Binding Id}"
+                                    HorizontalOptions="Center"/>
+                        </Grid>
+                    </Border>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
+
     </VerticalStackLayout>
 </ContentPage>
