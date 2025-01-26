@@ -4,6 +4,7 @@ using System.Runtime.CompilerServices;
 using System.Windows.Input;
 using KaliadzichShumer.SneakersShop.BLC;
 using KaliadzichShumer.SneakersShop.INTERFACES;
+using System;
 
 namespace KaliadzichShumer.SneakersShop.UI.WPF.ViewModels
 {
@@ -58,21 +59,23 @@ namespace KaliadzichShumer.SneakersShop.UI.WPF.ViewModels
     // Realisation commands
     public class RelayCommand : ICommand
     {
-        private readonly System.Action<object> _execute;
-        private readonly System.Func<object, bool> _canExecute;
+        private readonly Action<object?> _execute;
+        private readonly Func<object?, bool>? _canExecute;
 
-        public RelayCommand(System.Action<object> execute, System.Func<object, bool> canExecute = null)
+        public RelayCommand(Action<object?> execute, Func<object?, bool>? canExecute = null)
         {
             _execute = execute;
             _canExecute = canExecute;
         }
 
-        public bool CanExecute(object parameter) => _canExecute == null || _canExecute(parameter);
-        public void Execute(object parameter) => _execute(parameter);
-        public event System.EventHandler CanExecuteChanged
+        public bool CanExecute(object? parameter) => _canExecute == null || _canExecute(parameter);
+
+        public void Execute(object? parameter) => _execute(parameter);
+
+        public event EventHandler? CanExecuteChanged
         {
-            add { System.CommandManager.RequerySuggested += value; }
-            remove { System.CommandManager.RequerySuggested -= value; }
+            add    { CommandManager.RequerySuggested += value; }
+            remove { CommandManager.RequerySuggested -= value; }
         }
     }
 }

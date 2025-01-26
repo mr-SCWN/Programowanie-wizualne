@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KaliadzichShumer.SneakersShop.API", "KaliadzichShumer.SneakersShop.API\KaliadzichShumer.SneakersShop.API.csproj", "{6EB20BCC-ECBA-4ADF-B7E4-12015B42C63C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KaliadzichShumer.SneakersShop.BLC", "KaliadzichShumer.SneakersShop.BLC\KaliadzichShumer.SneakersShop.BLC.csproj", "{BC00289F-1C54-45D5-94CD-AC28DB518E9F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KaliadzichShumer.SneakersShop.DAOEFCORE", "KaliadzichShumer.SneakersShop.DAOEFCORE\KaliadzichShumer.SneakersShop.DAOEFCORE.csproj", "{DE29DAF6-8E72-4BDD-BD87-B23B9BDF86D2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KaliadzichShumer.SneakersShop.DAOMOCK", "KaliadzichShumer.SneakersShop.DAOMOCK\KaliadzichShumer.SneakersShop.DAOMOCK.csproj", "{E8CB9F49-248C-41F0-9968-68256AB57832}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KaliadzichShumer.SneakersShop.INTERFACES", "KaliadzichShumer.SneakersShop.INTERFACES\KaliadzichShumer.SneakersShop.INTERFACES.csproj", "{9F5624C3-458A-42A9-85E1-702EED7B3677}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6EB20BCC-ECBA-4ADF-B7E4-12015B42C63C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EB20BCC-ECBA-4ADF-B7E4-12015B42C63C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EB20BCC-ECBA-4ADF-B7E4-12015B42C63C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EB20BCC-ECBA-4ADF-B7E4-12015B42C63C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC00289F-1C54-45D5-94CD-AC28DB518E9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC00289F-1C54-45D5-94CD-AC28DB518E9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC00289F-1C54-45D5-94CD-AC28DB518E9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC00289F-1C54-45D5-94CD-AC28DB518E9F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE29DAF6-8E72-4BDD-BD87-B23B9BDF86D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE29DAF6-8E72-4BDD-BD87-B23B9BDF86D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE29DAF6-8E72-4BDD-BD87-B23B9BDF86D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE29DAF6-8E72-4BDD-BD87-B23B9BDF86D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8CB9F49-248C-41F0-9968-68256AB57832}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8CB9F49-248C-41F0-9968-68256AB57832}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8CB9F49-248C-41F0-9968-68256AB57832}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8CB9F49-248C-41F0-9968-68256AB57832}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F5624C3-458A-42A9-85E1-702EED7B3677}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F5624C3-458A-42A9-85E1-702EED7B3677}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F5624C3-458A-42A9-85E1-702EED7B3677}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F5624C3-458A-42A9-85E1-702EED7B3677}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
