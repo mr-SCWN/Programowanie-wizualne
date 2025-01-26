@@ -14,33 +14,6 @@ a {
   color: #1e90ff;
 }
 
-.top-buttons {
-  display: flex;
-  justify-content: center; /* Центрирование кнопок по горизонтали */
-  position: fixed; /* Фиксированное положение внизу */
-  bottom: 20px; /* Расстояние от нижнего края */
-  left: 0;
-  right: 0;
-  margin: auto;
-  z-index: 1000; /* Поверх других элементов */
-}
-
-.top-buttons button {
-  margin: 10px; /* Отступы между кнопками */
-  padding: 10px 20px; /* Внутренние отступы для размера кнопки */
-  font-size: 1rem;
-  background-color: #007bff;
-  border: none;
-  color: white;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-.top-buttons button:hover {
-  background-color: #0056b3; /* Изменение цвета при наведении */
-}
-
-
 .btn-primary {
   color: #ffffff;
   background-color: #007bff;
@@ -140,4 +113,30 @@ h1 {
 
 .add-buttons-container button:hover {
   background-color: #0056b3;
+}
+
+.top-buttons {
+  display: flex;
+  justify-content: center; /* Центрирование кнопок по горизонтали */
+  position: fixed; /* Фиксированное положение внизу */
+  bottom: 20px; /* Расстояние от нижнего края */
+  left: 0;
+  right: 0;
+  margin: auto;
+  z-index: 1000; /* Поверх других элементов */
+}
+
+.top-buttons button {
+  margin: 10px; /* Отступы между кнопками */
+  padding: 10px 20px; /* Внутренние отступы для размера кнопки */
+  font-size: 1rem;
+  background-color: #007bff;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.top-buttons button:hover {
+  background-color: #0056b3; /* Изменение цвета при наведении */
 }

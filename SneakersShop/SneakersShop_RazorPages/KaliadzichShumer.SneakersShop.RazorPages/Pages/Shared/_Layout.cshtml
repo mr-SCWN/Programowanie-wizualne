@@ -7,11 +7,12 @@
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
-    <div class="top-buttons">
-        <button>Products</button>
-        <button>Producers</button>
-    </div>
-
+    <header>
+        <nav>
+            <a asp-page="/Index">Products</a>
+            <a asp-page="/Producers">Producers</a>
+        </nav>
+    </header>
     <div class="container">
         @RenderBody()
     </div>
