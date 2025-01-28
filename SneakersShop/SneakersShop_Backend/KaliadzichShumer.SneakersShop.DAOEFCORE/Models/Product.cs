@@ -6,8 +6,12 @@ namespace KaliadzichShumer.SneakersShop.DAOEFCORE.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        
         public int ProducerId { get; set; }
         public string ProducerName { get; set; }
+
+        public ShoeType  ShoeType {get ; set; }
+
         public virtual Producer Producer { get; set; }
     }
 } 

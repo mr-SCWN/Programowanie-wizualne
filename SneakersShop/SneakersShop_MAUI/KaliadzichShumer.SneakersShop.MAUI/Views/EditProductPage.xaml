@@ -39,6 +39,12 @@
                 ItemDisplayBinding="{Binding Name}" 
                 Title="Select Producer" />
 
+        <!-- Новый блок для ShoeType -->
+        <Label Text="Shoe Type:" />
+        <Picker ItemsSource="{Binding ShoeTypes}"
+                SelectedItem="{Binding ShoeType}"
+                Title="Select Shoe Type" />
+
         <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
             <Button Text="Save"
                     Command="{Binding SaveCommand}"

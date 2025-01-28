@@ -12,6 +12,7 @@
     <thead>
         <tr>
             <th>Producer Name</th>
+            <th>Country</th>
             <th>Actions</th>
         </tr>
     </thead>
@@ -20,6 +21,7 @@
         {
             <tr id="producerRow-@producer.Id">
                 <td>@producer.Name</td>
+                <td>@producer.Country</td>
                 <td>
                     <button class="edit-producer-button" data-producer-id="@producer.Id">Edit</button>
                     <button class="delete-producer-button" data-producer-id="@producer.Id">Delete</button>

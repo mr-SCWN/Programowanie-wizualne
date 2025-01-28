@@ -12,8 +12,29 @@ namespace KaliadzichShumer.SneakersShop.MAUI.ViewModels
         private readonly INavigationService _navigationService;
         private readonly int? _productId;
 
-        public ObservableCollection<Producer> Producers { get; } = new();
+        private string _shoeType;
+        public string ShoeType
+        {
+            get => _shoeType;
+            set
+            {
+                if (_shoeType != value)
+                {
+                    _shoeType = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
 
+        public ObservableCollection<Producer> Producers { get; } = new();
+        public ObservableCollection<string> ShoeTypes { get; } = new()
+            {
+                "running",
+                "walking",
+                "football",
+                "basketball"
+            };
+        
         private Producer _selectedProducer;
         public Producer SelectedProducer
         {
@@ -40,7 +61,7 @@ namespace KaliadzichShumer.SneakersShop.MAUI.ViewModels
         }
 
         public async Task LoadData() {
-            if (IsBusy) return;
+            if (IsBusy){ return; }
 
             try  {
                 IsBusy = true;
@@ -60,6 +81,7 @@ namespace KaliadzichShumer.SneakersShop.MAUI.ViewModels
                     {
                         Name = product.Name;
                         SelectedProducer = Producers.FirstOrDefault(p => p.Id == product.ProducerId);
+                        ShoeType = product.ShoeType;
                     }
                 }
             } finally {
@@ -68,7 +90,9 @@ namespace KaliadzichShumer.SneakersShop.MAUI.ViewModels
         }
 
         protected override async Task OnSave() {
-            if (IsBusy) return;
+            if (IsBusy){
+                 return;
+            }
 
             try {
                 IsBusy = true;
@@ -83,9 +107,16 @@ namespace KaliadzichShumer.SneakersShop.MAUI.ViewModels
                     return;
                 }
 
+                if (string.IsNullOrEmpty(ShoeType))
+                {
+                    await _dialogService.DisplayAlert("Error", "Please select shoe type", "OK");
+                    return;
+                }
+
                 if (_productId.HasValue){
-                        await _productsViewModel.UpdateProduct(_productId.Value, Name, SelectedProducer.Id);
-                } else {await _productsViewModel.AddProduct(Name, SelectedProducer.Id);
+                        await _productsViewModel.UpdateProduct(_productId.Value, Name, SelectedProducer.Id, ShoeType);
+                } else {
+                    await _productsViewModel.AddProduct(Name, SelectedProducer.Id, ShoeType);
                 }
 
                 await _navigationService.PopModalAsync();

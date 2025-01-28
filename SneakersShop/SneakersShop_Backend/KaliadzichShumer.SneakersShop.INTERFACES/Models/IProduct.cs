@@ -4,5 +4,6 @@ namespace KaliadzichShumer.SneakersShop.INTERFACES.Models {
         string Name { get; set; }
         int ProducerId { get; set; }
         string ProducerName { get; set; }
+        ShoeType ShoeType {get; set;}
     }
 } 

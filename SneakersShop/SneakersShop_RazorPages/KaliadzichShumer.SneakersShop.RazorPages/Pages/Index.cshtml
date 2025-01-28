@@ -12,8 +12,9 @@
 <table>
     <thead>
         <tr>
-            <th>Producer</th>
-            <th>Product</th>
+            <th>Product Name</th>
+            <th>Producer Name</th>
+            <th>Shoe Type</th>
             <th>Actions</th>
         </tr>
     </thead>
@@ -21,8 +22,9 @@
         @foreach (var product in Model.Products)
         {
             <tr id="productRow-@product.Id">
-                <td>@product.ProducerName</td>
                 <td>@product.Name</td>
+                <td>@product.ProducerName</td>
+                <td>@product.ShoeType</td>
                 <td>
                     <button class="edit-button" data-product-id="@product.Id">Edit</button>
                     <button class="delete-button" data-product-id="@product.Id">Delete</button>

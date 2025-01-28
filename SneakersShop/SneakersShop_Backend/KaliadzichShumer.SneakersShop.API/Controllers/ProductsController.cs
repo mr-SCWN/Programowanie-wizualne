@@ -32,7 +32,7 @@ namespace KaliadzichShumer.SneakersShop.API.Controllers{
         public IActionResult Create([FromBody] ProductDto productDto){
             var product = productDto.ToModel();
             var created = _service.CreateProduct(product);
-            return CreatedAtAction(nameof(GetById), new { id = created.Id }, created.ToDto());
+            return CreatedAtAction(nameof(GetById) , new { id = created.Id } , created.ToDto());
         }
 
         [HttpPut("{id}")]

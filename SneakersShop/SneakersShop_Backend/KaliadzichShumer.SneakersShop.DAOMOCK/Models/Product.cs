@@ -6,5 +6,6 @@ namespace KaliadzichShumer.SneakersShop.DAOMOCK.Models {
         public string Name { get; set; }
         public int ProducerId { get; set; }
         public string ProducerName { get; set; }
+        public ShoeType ShoeType {get; set;}
     }
 } 

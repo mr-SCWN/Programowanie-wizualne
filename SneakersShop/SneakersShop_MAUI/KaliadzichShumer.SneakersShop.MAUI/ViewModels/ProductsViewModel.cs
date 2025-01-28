@@ -104,14 +104,16 @@ namespace KaliadzichShumer.SneakersShop.MAUI.ViewModels
             }
         }
 
-        public async Task AddProduct(string name, int producerId)
+        public async Task AddProduct(string name, int producerId, string shoeType)
         {
-            if (IsBusy) return;
+            if (IsBusy) {
+                return;
+            }
 
             try
             {
                 IsBusy = true;
-                var product = new Models.Product { Name = name, ProducerId = producerId };
+                var product = new Models.Product { Name = name, ProducerId = producerId, ShoeType = shoeType };
                 if (await _productService.AddProductAsync(product))
                 {
                     await LoadData();
@@ -128,7 +130,7 @@ namespace KaliadzichShumer.SneakersShop.MAUI.ViewModels
             }
         }
 
-        public async Task UpdateProduct(int id, string name, int producerId)
+        public async Task UpdateProduct(int id, string name, int producerId , string shoeType)
         {
             if (IsBusy) {
                 return;}
@@ -139,6 +141,7 @@ namespace KaliadzichShumer.SneakersShop.MAUI.ViewModels
                 if (product != null)  {
                     product.Name = name;
                     product.ProducerId = producerId;
+                    product.ShoeType = shoeType;
                     if (await _productService.UpdateProductAsync(product))
                     {
                         await LoadData();

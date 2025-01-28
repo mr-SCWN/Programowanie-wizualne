@@ -24,6 +24,7 @@ namespace KaliadzichShumer.SneakersShop.DAOEFCORE {
             var efProducer = new Producer
             {
                 Name = producer.Name,
+                Country = producer.Country,
                 ProductsCollection = new List<Product>()
             };
             _context.Producers.Add(efProducer);
@@ -35,6 +36,7 @@ namespace KaliadzichShumer.SneakersShop.DAOEFCORE {
             var efProducer = _context.Producers.Find(producer.Id);
             if (efProducer != null) {
                 efProducer.Name = producer.Name;
+                 efProducer.Country = producer.Country;
                 _context.SaveChanges();
             }
         }
@@ -59,7 +61,8 @@ namespace KaliadzichShumer.SneakersShop.DAOEFCORE {
             var _PRODUCT = new Product
             {
                 Name = product.Name,
-                ProducerId = product.ProducerId
+                ProducerId = product.ProducerId,
+                ShoeType = product.ShoeType
             };
             
             var producer = _context.Producers.Find(product.ProducerId);
@@ -79,6 +82,7 @@ namespace KaliadzichShumer.SneakersShop.DAOEFCORE {
             if (efProduct != null) {
                 efProduct.Name = product.Name;
                 efProduct.ProducerId = product.ProducerId;
+                efProduct.ShoeType = product.ShoeType;
                 
                 var producer = _context.Producers.Find(product.ProducerId);
                 if (producer != null) {

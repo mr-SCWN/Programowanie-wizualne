@@ -18,6 +18,7 @@ namespace KaliadzichShumer.SneakersShop.DAOMOCK
             {
                 Id = 1,
                 Name = "Producer 1",
+                Country = "USA",
                 Products = new List<IProduct>()
             };
             
@@ -25,6 +26,7 @@ namespace KaliadzichShumer.SneakersShop.DAOMOCK
             {
                 Id = 2,
                 Name = "Producer 2",
+                Country = "Germany",
                 Products = new List<IProduct>()
             };
 
@@ -33,7 +35,8 @@ namespace KaliadzichShumer.SneakersShop.DAOMOCK
                 Id = 1,
                 Name = "Product 1",
                 ProducerId = producer1.Id,
-                ProducerName = producer1.Name
+                ProducerName = producer1.Name,
+                ShoeType = ShoeType.Running
             };
             
             var product2 = new Product
@@ -41,7 +44,8 @@ namespace KaliadzichShumer.SneakersShop.DAOMOCK
                 Id = 2,
                 Name = "Product 2",
                 ProducerId = producer2.Id,
-                ProducerName = producer2.Name
+                ProducerName = producer2.Name,
+                ShoeType = ShoeType.Basketball
             };
 
             producer1.Products.Add(product1);
@@ -73,6 +77,7 @@ namespace KaliadzichShumer.SneakersShop.DAOMOCK
             {
                 Id = _producers.Any() ? _producers.Max(p => p.Id) + 1 : 1,
                 Name = producer.Name,
+                Country = producer.Country,
                 Products = new List<IProduct>()
             };
             _producers.Add(newProducer);
@@ -87,6 +92,7 @@ namespace KaliadzichShumer.SneakersShop.DAOMOCK
             if (existing != null)
             {
                 existing.Name = producer.Name;
+                existing.Country  = producer.Country; 
                 foreach (var product in _products.Where(p => p.ProducerId == producer.Id))
                 {
                     product.ProducerName = producer.Name;
@@ -130,7 +136,8 @@ namespace KaliadzichShumer.SneakersShop.DAOMOCK
                     Id = _products.Any() ? _products.Max(p => p.Id) + 1 : 1,
                     Name = product.Name,
                     ProducerId = product.ProducerId,
-                    ProducerName = producer.Name
+                    ProducerName = producer.Name ,
+                    ShoeType = product.ShoeType
                 };
                 _products.Add(newProduct);
                 producer.Products.Add(newProduct);
@@ -157,6 +164,7 @@ namespace KaliadzichShumer.SneakersShop.DAOMOCK
                     existing.Name = product.Name;
                     existing.ProducerId = product.ProducerId;
                     existing.ProducerName = newProducer.Name;
+                    existing.ShoeType = product.ShoeType;
                     newProducer.Products.Add(existing);
                 }
             }

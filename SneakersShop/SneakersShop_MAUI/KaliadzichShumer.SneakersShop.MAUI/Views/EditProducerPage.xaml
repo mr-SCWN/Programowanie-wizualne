@@ -33,6 +33,10 @@
         <Entry Text="{Binding Name}" 
                Placeholder="Enter producer name" />
 
+        <Label Text="Country:" />
+        <Entry Text="{Binding Country}"
+            Placeholder="Enter country" />
+
         <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
             <Button Text="Save"
                     Command="{Binding SaveCommand}"

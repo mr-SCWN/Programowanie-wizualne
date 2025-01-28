@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using KaliadzichShumer.SneakersShop.DAOEFCORE.Models;
+using KaliadzichShumer.SneakersShop.INTERFACES.Models;
 
 namespace KaliadzichShumer.SneakersShop.DAOEFCORE {
     public class SneakersShopContext : DbContext {
@@ -19,6 +20,11 @@ namespace KaliadzichShumer.SneakersShop.DAOEFCORE {
                 .HasMany(p => p.ProductsCollection)
                 .WithOne(p => p.Producer)
                 .HasForeignKey(p => p.ProducerId);
+
+            modelBuilder.Entity<Product>()
+                .Property(p => p.ShoeType)
+                .HasConversion<string>() // Хранить как строку. Если хотите хранить как int, используйте HasConversion<int>()
+                .IsRequired(); // Указывает, что поле обязательно
         }
     }
 } 

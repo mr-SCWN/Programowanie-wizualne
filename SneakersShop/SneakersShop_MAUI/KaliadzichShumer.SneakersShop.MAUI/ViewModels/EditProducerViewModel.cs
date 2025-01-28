@@ -8,6 +8,20 @@ namespace KaliadzichShumer.SneakersShop.MAUI.ViewModels{
         private readonly INavigationService _navigationService;
         private readonly int? _producerId;
 
+        private string _country;
+        public string Country
+        {
+            get => _country;
+            set
+            {
+                if (_country != value)
+                {
+                    _country = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
         public EditProducerViewModel(
             ProducersViewModel producersViewModel,
             INavigationService navigationService,
@@ -24,6 +38,7 @@ namespace KaliadzichShumer.SneakersShop.MAUI.ViewModels{
                 if (producer != null)
                 {
                     Name = producer.Name;
+                    Country =  producer.Country;
                 }
             }
         }
@@ -41,9 +56,9 @@ namespace KaliadzichShumer.SneakersShop.MAUI.ViewModels{
 
                 bool success;
                 if (_producerId.HasValue){
-                    success = await _producersViewModel.UpdateProducer(_producerId.Value, Name);
+                    success = await _producersViewModel.UpdateProducer(_producerId.Value, Name, Country);
                 }  else {
-                        success = await _producersViewModel.AddProducer(Name);
+                        success = await _producersViewModel.AddProducer(Name, Country);
                 }
                    
 

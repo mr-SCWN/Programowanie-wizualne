@@ -97,14 +97,18 @@ namespace KaliadzichShumer.SneakersShop.MAUI.ViewModels
             }
         }
 
-        public async Task<bool> AddProducer(string name)  {
+        public async Task<bool> AddProducer(string name, string country)  {
             if (IsBusy) {
                 return false;
             }
 
             try {
                 IsBusy = true;
-                var producer = new Models.Producer { Name = name };
+                var producer = new Models.Producer { 
+                    Name = name , 
+                    Country = country
+                };
+
                 await _dialogService.DisplayAlert("Debug", $"Attempting to add producer: {name}");
                 
                 if (await _producerService.AddProducerAsync(producer))
@@ -130,8 +134,10 @@ namespace KaliadzichShumer.SneakersShop.MAUI.ViewModels
             }
         }
 
-        public async Task<bool> UpdateProducer(int id, string name) {
-            if (IsBusy) return false;
+        public async Task<bool> UpdateProducer(int id, string name, string country) {
+            if (IsBusy) {
+                return false;
+            }
 
             try
             {
@@ -140,6 +146,7 @@ namespace KaliadzichShumer.SneakersShop.MAUI.ViewModels
                 if (producer != null)
                 {
                     producer.Name = name;
+                    producer.Country = country;
                     if (await _producerService.UpdateProducerAsync(producer))  {
                         await LoadData();
                         return true;
