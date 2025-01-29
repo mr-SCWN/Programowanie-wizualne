@@ -29,10 +29,10 @@ namespace KaliadzichShumer.SneakersShop.MAUI.ViewModels
         public ObservableCollection<Producer> Producers { get; } = new();
         public ObservableCollection<string> ShoeTypes { get; } = new()
             {
-                "running",
-                "walking",
-                "football",
-                "basketball"
+                "Running",
+                "Walking",
+                "Football",
+                "Basketball"
             };
         
         private Producer _selectedProducer;
