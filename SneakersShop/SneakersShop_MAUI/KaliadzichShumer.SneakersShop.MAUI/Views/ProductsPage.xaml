@@ -37,54 +37,54 @@
                 Command="{Binding AddProductCommand}"
                 HorizontalOptions="Center"/>
 
-        <!-- Список продуктов -->
+        <!-- Column headers -->
+        <Grid ColumnDefinitions="3*,3*,2*,1.5*,1.5*"
+              BackgroundColor="#3A3A3A"
+              Padding="10">
+            <Label Grid.Column="0" Text="Product Name" FontAttributes="Bold"/>
+            <Label Grid.Column="1" Text="Producer Name" FontAttributes="Bold"/>
+            <Label Grid.Column="2" Text="Type" FontAttributes="Bold"/>
+            <Label Grid.Column="3" Text="Edit" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+            <Label Grid.Column="4" Text="Delete" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+        </Grid>
+
         <CollectionView ItemsSource="{Binding Products}"
-                       Margin="0,20,0,0">
+                       Margin="0,10,0,0">
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="models:Product">
-                    
-                    <!-- 
-                         Используем Border (MAUI .NET 7+)
-                         Stroke="Black" – чёрная рамка,
-                         StrokeThickness="1" – толщина рамки
-                    -->
                     <Border Stroke="Black" StrokeThickness="1" Margin="2">
-                        <Grid ColumnDefinitions="Auto,Auto,Auto,Auto,Auto"
-                              Padding="10">
-
-                            <!-- Название производителя -->
+                        <Grid ColumnDefinitions="3*,Auto,3*,Auto,2*,Auto,1.5*,Auto,1.5*"
+                              Padding="10"
+                              RowSpacing="0">
                             <Label Grid.Column="0"
                                    Text="{Binding Name}"
-                                   HorizontalOptions="Center"
                                    VerticalOptions="Center"/>
-                            
-                            <!-- Название продукта -->
-                            <Label Grid.Column="1"
-                                   Text="{Binding ProducerName}"
-                                   HorizontalOptions="Center"
-                                   VerticalOptions="Center"
-                                   Margin="20,0,20,0"/>
 
-                            <!-- Tip продукта -->
+                            <BoxView Grid.Column="1" BackgroundColor="Black" WidthRequest="1"/>
+
                             <Label Grid.Column="2"
-                                   Text="{Binding ShoeType}"
-                                   HorizontalOptions="Center"
-                                   VerticalOptions="Center"
-                                   Margin="20,0,20,0"/>
+                                   Text="{Binding ProducerName}"
+                                   VerticalOptions="Center"/>
+                                
+                            <BoxView Grid.Column="3" BackgroundColor="Black" WidthRequest="1"/>
 
-                            <!-- Кнопка Edit -->
-                            <Button Grid.Column="3"
+                            <Label Grid.Column="4"
+                                   Text="{Binding ShoeType}"
+                                   VerticalOptions="Center"/>
+
+                            <BoxView Grid.Column="5" BackgroundColor="Black" WidthRequest="1"/>
+
+                            <Button Grid.Column="6"
                                     Text="Edit"
                                     Command="{Binding Source={RelativeSource AncestorType={x:Type vm:ProductsViewModel}}, Path=EditProductCommand}"
-                                    CommandParameter="{Binding Id}"
-                                    HorizontalOptions="Center"/>
+                                    CommandParameter="{Binding Id}"/>
 
-                            <!-- Кнопка Delete -->
-                            <Button Grid.Column="4"
+                            <BoxView Grid.Column="7" BackgroundColor="Black" WidthRequest="1"/>
+
+                            <Button Grid.Column="8"
                                     Text="Delete"
                                     Command="{Binding Source={RelativeSource AncestorType={x:Type vm:ProductsViewModel}}, Path=DeleteProductCommand}"
-                                    CommandParameter="{Binding Id}"
-                                    HorizontalOptions="Center"/>
+                                    CommandParameter="{Binding Id}"/>
                         </Grid>
                     </Border>
                 </DataTemplate>
