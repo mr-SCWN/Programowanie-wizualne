@@ -20,6 +20,7 @@ namespace KaliadzichShumer.SneakersShop.MAUI.ViewModels{
         }
 
         private string _name;
+    
         public string Name {
             get => _name;
             set
